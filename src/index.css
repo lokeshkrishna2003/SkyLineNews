@@ -5,9 +5,64 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
+
+.card{
+  height:473.55px;
+  background-image: linear-gradient(to right, #2b2929 20%, rgb(31, 35, 29) 100%);
+  width: 288px;
+  padding: 0.2rem;
+  color: rgba(216, 195, 195, 0.822);
+  border-color: rgb(223, 204, 166);
+}
+.card-img-top{
+  height: 150.35px;
+  width: 280.4px;
+}
+.newsitem{
+  margin: 1rem;
+
+}
+.text{
+  color: rgb(167, 134, 72);
+
+text-align: center;
+  z-index: 1;
+}
+
+.author{
+  color: rgb(83, 215, 184);
+}
+.navbar{
+  background-color: #dce6d9;
+  position: sticky;
+  top: 2px;
+  z-index: 1;
+}
+.load{
+  height: 2vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.load img{
+height: 5vh;
+}
+.time{
+  color: #d08952;
+}
+
+.infinite-scroll-component{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
+}
+
