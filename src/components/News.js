@@ -6,7 +6,6 @@ import Loader from "./Loader";
 export default function News(props) {
   const [loading, setloading] = useState(false);
   const [data, setdata] = useState({ articles: [], totalResults: 0, page: 1 });
-  // let [page, setpage] = useState(1);
   const pagesize = 5;
 
   useEffect(() => {

@@ -10,7 +10,7 @@ import {
 
 export default function App() {
   const [progress,setprogress]=useState(1)
-//  const apikey = process.env.local.REACT_APP_APIKEY
+
  const apikey = "aa10192302064e39abb4b3e2145ce8c4"
   
   return (
