@@ -60,7 +60,7 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
   return (
     <>
       <div className="container">
-        <h3 className="text mx-3 my-4">---Top Headlines---</h3>
+        <h3 className="text mx-3 my-4">---Top-Headlines---</h3>
         <div className="load">{loading === true && <Loader />}</div>
         <div className="items">
           <InfiniteScroll

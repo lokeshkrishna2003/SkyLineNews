@@ -9,7 +9,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <h3 className="navbar-brand" >
-          SkylineNews
+          <b>SkyLineNews</b>
           </h3>
           <button
             className="navbar-toggler"
@@ -33,32 +33,32 @@ export default function Navbar() {
 
               <li className="nav-item">
                 <Link className="nav-link" to="/business">
-                  business
+                  Business
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/entertainment">
-                  entertainment
+                  Entertainment
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/health">
-                  health
+                  Health
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/science">
-                  science
+                  Science
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/sports">
-                  sports
+                  Sports
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/technology">
-                  technology
+                  Technology
                 </Link>
               </li>
             </ul>
