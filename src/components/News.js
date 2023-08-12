@@ -10,34 +10,23 @@ export default function News(props) {
   const pagesize = 5;
 
   useEffect(() => {
-    setloading(true);
-    fetch(`
-https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=27a5d4a1016942259fb886fb129ad9aa&page=${data.page}&pageSize=${pagesize}`).then(
-      (result) => {
-        result.json().then((resp) => {
-          setdata({                     
-            articles: resp.articles,
-            page: data.page,
-            totalResults: resp.totalResults
-          });
-          setloading(false);
-          console.log(data.page);
-        });
-      }
-    );
+    document.title=(props.category).charAt(0).toUpperCase()+(props.category).slice(1)+"-"+"Newsmonkey"
+    updatenews();
   }, []);
   const updatenews = async () => {
+    props.setProgress(0);
     setloading(true);
     fetch(`
-https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=8d953d3388854bfd8de5de25aade6b50&page=${data.page}&pageSize=${pagesize}`).then(
-      (result) => {
+https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${data.page}&pageSize=${pagesize}`).then(
+  (result) => {
+        props.setProgress(100)
+        setloading(false);
         result.json().then((resp) => {
           setdata({
             articles: resp.articles,
             page: data.page,
             totalResults: resp.totalResults,
           });
-          setloading(false);
           console.log(data.page);
         });
       }
@@ -48,8 +37,9 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
     data.page = data.page + 1;
     // updatenews()
     setloading(true);
+
     fetch(`
-https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=8d953d3388854bfd8de5de25aade6b50&page=${data.page}&pageSize=${pagesize}`).then(
+https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${data.page}&pageSize=${pagesize}`).then(
       (result) => {
         result.json().then((resp) => {
           setdata({

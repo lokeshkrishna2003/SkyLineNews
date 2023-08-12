@@ -9,7 +9,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <h3 className="navbar-brand" >
-            Navbar
+            News-Monkey
           </h3>
           <button
             className="navbar-toggler"
