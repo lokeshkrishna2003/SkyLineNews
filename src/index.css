@@ -65,4 +65,9 @@ height: 5vh;
   flex-wrap: wrap;
   width: 90vw;
 }
-
+.nav-link:focus{
+  color: #a18eef;
+  
+  
+  
+}
