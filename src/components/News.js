@@ -9,7 +9,11 @@ export default function News(props) {
   const pagesize = 5;
 
   useEffect(() => {
-    document.title=(props.category).charAt(0).toUpperCase()+(props.category).slice(1)+"-"+"Newsmonkey"
+    document.title =
+      props.category.charAt(0).toUpperCase() +
+      props.category.slice(1) +
+      "-" +
+      "Newsmonkey";
     updatenews();
   }, []);
   const updatenews = async () => {
@@ -17,8 +21,8 @@ export default function News(props) {
     setloading(true);
     fetch(`
 https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${data.page}&pageSize=${pagesize}`).then(
-  (result) => {
-        props.setProgress(100)
+      (result) => {
+        props.setProgress(100);
         setloading(false);
         result.json().then((resp) => {
           setdata({
@@ -26,7 +30,6 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
             page: data.page,
             totalResults: resp.totalResults,
           });
-          console.log(data.page);
         });
       }
     );
@@ -34,7 +37,7 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
 
   const fetchmoredata = async () => {
     data.page = data.page + 1;
-    // updatenews()
+
     setloading(true);
 
     fetch(`
@@ -47,7 +50,6 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
             totalResults: resp.totalResults,
           });
           setloading(false);
-          console.log(data.page);
         });
       }
     );
@@ -71,44 +73,34 @@ https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.c
               </div>
             }
           >
-            {data.articles.map((item) => {
-              return (
-                <>
-                  <div className="newsitem" key={item.url}>
-                    <Newsitem
-                      source={item.source.name}
-                      title={
-                        item.title !== null
-                          ? item.title.slice(0, 45) + "..."
-                          : ""
-                      }
-                      description={
-                        item.description !== null
-                          ? item.description.slice(0, 55) + "..."
-                          : defaultcardtext
-                      }
-                      url={item.url}
-                      urlToImage={
-                        item.urlToImage !== null
-                          ? item.urlToImage
-                          : defaultimageurl
-                      }
-                      publishedAt={
-                        new Date(item.publishedAt).toGMTString() === null
-                          ? "published recently"
-                          : "Published on " +
-                            new Date(item.publishedAt).toGMTString()
-                      }
-                      author={
-                        item.author === null
-                          ? ""
-                          : `Published by ${item.author}`
-                      }
-                    />
-                  </div>
-                </>
-              );
-            })}
+            {data.articles.map((item, index) => (
+              <div className="newsitem" key={index}>
+                <Newsitem
+                  source={item.source.name}
+                  title={
+                    item.title !== null ? item.title.slice(0, 45) + "..." : ""
+                  }
+                  description={
+                    item.description !== null
+                      ? item.description.slice(0, 55) + "..."
+                      : defaultcardtext
+                  }
+                  url={item.url}
+                  urlToImage={
+                    item.urlToImage !== null ? item.urlToImage : defaultimageurl
+                  }
+                  publishedAt={
+                    new Date(item.publishedAt).toGMTString() === null
+                      ? "published recently"
+                      : "Published on " +
+                        new Date(item.publishedAt).toGMTString()
+                  }
+                  author={
+                    item.author === null ? "" : `Published by ${item.author}`
+                  }
+                />
+              </div>
+            ))}
           </InfiniteScroll>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function Newsitem(props) {
         <img src={props.urlToImage} className="card-img-top" alt="..." />
         <div className="card-body">
           <span
-            class="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
+            className="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
             style={{
               zIndex: 1,
               left : '90%'
