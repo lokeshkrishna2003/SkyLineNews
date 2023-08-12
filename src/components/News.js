@@ -13,7 +13,7 @@ export default function News(props) {
       props.category.charAt(0).toUpperCase() +
       props.category.slice(1) +
       "-" +
-      "Newsmonkey";
+      "SkyLineNews";
     updatenews();
   }, []);
   const updatenews = async () => {
